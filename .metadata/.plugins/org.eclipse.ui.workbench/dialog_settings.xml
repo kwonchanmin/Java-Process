@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="NewWizardAction">
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.wst.xml.ui.internal.wizards.NewXMLWizard"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.wst.XMLCategory"/>
+		</list>
+	</section>
+	<section name="ImportExportAction">
+		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.ExternalProject"/>
+		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="org.eclipse.ui.wizards.export.ZipFile"/>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+	</section>
+	<section name="ZipFileImportWizard">
+		<item key="WizardZipFileResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID" value="false"/>
+		<list key="WizardZipFileResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="/Users/kwonchanmin/Downloads/java모음.zip"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.preferences.keysPreferencePage">
+		<item key="actionSetFilter" value="true"/>
+		<item key="internalFilter" value="true"/>
+		<item key="uncategorizedFilter" value="true"/>
+	</section>
+	<section name="ZipFileExportWizard">
+		<item key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
+		<item key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID" value="true"/>
+		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="/Users/kwonchanmin/Desktop/EclipsProject/JAVA 1차 프로젝트(MyBatis).zip"/>
+			<item value="/Users/kwonchanmin/Desktop/EclipsProject/JAVA 1차 프로젝트(JDBC+MVC).zip"/>
+			<item value="/Users/kwonchanmin/Desktop/EclipsProject/project(number2,mybatis).zip"/>
+			<item value="/Users/kwonchanmin/Desktop/EclipsProject/project(number 1).zip"/>
+			<item value="/Users/kwonchanmin/Desktop/user.zip"/>
+			<item value="/Users/kwonchanmin/Desktop/12:29.zip"/>
+			<item value="/Users/kwonchanmin/Desktop/12:28.zip"/>
+		</list>
+	</section>
+	<section name="InstallationDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="-47"/>
+		<item key="DIALOG_Y_ORIGIN" value="-135"/>
+		<item key="DIALOG_WIDTH" value="762"/>
+		<item key="DIALOG_HEIGHT" value="639"/>
+		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
+	</section>
+</section>

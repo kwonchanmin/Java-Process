@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+			 PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" 
+			 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- mapper xml file은 하나가 아니다. config 만들 때 여러개를 줄 수도 있다. -->
+
+<mapper namespace="example.myBook"> <!-- 여기선 "" 안에 ., 이런거는 상관없이 그냥 문자열을 나타낸다 -->
+
+	<select id="selectBookByISBNHashMap" parameterType="String"
+		resultType="HashMap">  <!-- id =에 SELECT구문을 지칭하는 이름을 적어주는거다. -->
+			
+  		<![CDATA[
+  			SELECT id,name,password,birth,tel
+  			FROM users
+  			WHERE id = #{id} AND password = #{password}
+ 		]]> <!-- <![CDATA[]]> 를 붙이는게 기본 -->	<!-- isbn이라는 변수를 이용해서 쿼리를 실행시키세요 라는 말이다, #{isbn}은 BookDAO에서 찾는 isbn값이 들어온다. 
+			그러므로 DAO와 인자가 같아야된다. -->
+	</select>
+	
+	<select id="selectAllHashmap" resultType="HashMap"> <!-- select에서 가져온 한줄 할줄을 어디에 넣을 건지를 적어주는게 resultType에 적어주는거다. -->
+	<![CDATA[
+  			SELECT bisbn,btitle,bauthor,bprice
+  			FROM book
+ 		]]>
+	</select>
+	
+	<!-- select에서 가져온 column과 매칭되는 vo의 field를 찾아서 값을 매핑. 전제 조건이 내가 적은 sql구문의 컬럼명과 VO의 필드명이 같아야된다.  -->
+	<select id="selectBookByISBNBookVO" resultType="Book"> 
+	<![CDATA[
+  			SELECT bisbn,btitle,bauthor,bprice
+  			FROM book
+  			WHERE bisbn =#{isbn}
+ 		]]>
+	</select>
+	
+	<resultMap type="Book" id="testMap">
+		<result column ="b_isbn" property="bisbn"/>  <!-- column은 select해서 나온 결과 집합의 컬럼명 , property는 VO의 field명이다.-->
+		<result column ="b_title" property="btitle"/> <!--  -->
+		<result column ="b_author" property="bauthor"/>
+		<result column ="b_price" property="bprice"/>	
+	</resultMap>
+	
+	<select id="selectBookByISBNResultMap" resultMap="testMap"><!-- resultMap은 따로 resultMap을 만들어서 타입과 id를 따로 만들고 type에는 우리가 따로만든 VO클레스의 이름을
+	그리고 id에는 만들 이름을 적고 sql구문을 적을 때 사용될 이름에 id를 똑같게 작성하면 된다. -->
+	<![CDATA[
+  			SELECT bisbn AS b_isbn,
+  					btitle AS b_title,
+  					bauthor AS b_authot,
+  					bprice AS b_price
+  			FROM book
+  			WHERE bisbn =#{isbn}
+ 		]]> <!-- select에서 가져온 이름과 vo에서 가져온 이름이 다르기 때문에 쓸 수가 없다. 이것을 쓰려면 resultType 말고 resultMap을 사용해줘야된다.-->
+	</select>
+	
+	<update id="update" parameterType="Book"> <!-- update는 parameter다. -->
+	<![CDATA[
+  			UPDATE book
+  			SET btitle = #{btitle},
+  				bauthor = #{bauthor},
+  				bprice = #{bprice}
+  			WHERE bisbn = #{bisbn}
+ 		]]>
+	</update>
+	<!-- update,delete,insert는 transaction처리를 반드시 해줘야지 sql 에서도 변화가 가능하다. -->
+</mapper>
